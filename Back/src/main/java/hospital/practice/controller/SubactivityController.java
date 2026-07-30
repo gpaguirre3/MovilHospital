@@ -17,7 +17,10 @@ public class SubactivityController {
     private final SubactivityService subactivityService;
 
     @GetMapping
-    public ResponseEntity<List<SubactivityDTO>> getAllSubactivities() {
+    public ResponseEntity<List<SubactivityDTO>> getAllSubactivities(@RequestParam(required = false) Integer activityId) {
+        if (activityId != null) {
+            return ResponseEntity.ok(subactivityService.findByActivityId(activityId));
+        }
         return ResponseEntity.ok(subactivityService.findAll());
     }
 

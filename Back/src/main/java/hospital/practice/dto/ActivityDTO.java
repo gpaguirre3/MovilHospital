@@ -8,8 +8,8 @@ import lombok.*;
 @Builder
 public class ActivityDTO {
     private Integer activityId;
-    private Integer assignmentsId;
-    private AssignmentDTO assignment;
-    private String subactivityName;
-    private String subactivityDescription;
+    private Integer recordId;
+    private RecordDTO record;
+    private String activityName;
+    private String activityDescription;
 }

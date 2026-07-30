@@ -31,6 +31,12 @@ public class ActivityServiceImpl implements ActivityService {
     }
 
     @Override
+    @Transactional(readOnly = true)
+    public List<ActivityDTO> findByRecordId(Integer recordId) {
+        return activityMapper.toDTOList(activityRepository.findByRecord_RecordId(recordId));
+    }
+
+    @Override
     @Transactional
     public ActivityDTO save(ActivityDTO activityDTO) {
         Activity entity = activityMapper.toEntity(activityDTO);

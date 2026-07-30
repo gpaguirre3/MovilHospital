@@ -31,6 +31,12 @@ public class SubactivityServiceImpl implements SubactivityService {
     }
 
     @Override
+    @Transactional(readOnly = true)
+    public List<SubactivityDTO> findByActivityId(Integer activityId) {
+        return subactivityMapper.toDTOList(subactivityRepository.findByActivity_ActivityId(activityId));
+    }
+
+    @Override
     @Transactional
     public SubactivityDTO save(SubactivityDTO subactivityDTO) {
         Subactivity entity = subactivityMapper.toEntity(subactivityDTO);

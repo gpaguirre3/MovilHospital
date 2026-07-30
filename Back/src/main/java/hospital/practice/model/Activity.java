@@ -17,12 +17,12 @@ public class Activity {
     private Integer activityId;
 
     @ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "ASSIGNMENTSID", nullable = false)
-    private Assignment assignment;
+    @JoinColumn(name = "RECORDID", nullable = false)
+    private Record record;
 
-    @Column(name = "SUBACTIVITYNAME", length = 64)
-    private String subactivityName;
+    @Column(name = "ACTIVITYNAME", length = 64)
+    private String activityName;
 
-    @Column(name = "SUBACTIVITYDESCRIPTION", length = 256)
-    private String subactivityDescription;
+    @Column(name = "ACTIVITYDESCRIPTION", length = 256)
+    private String activityDescription;
 }

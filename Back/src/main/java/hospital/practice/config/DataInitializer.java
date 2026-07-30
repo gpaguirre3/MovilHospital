@@ -1,8 +1,16 @@
 package hospital.practice.config;
 
+import hospital.practice.model.Activity;
+import hospital.practice.model.Assignment;
 import hospital.practice.model.Person;
+import hospital.practice.model.Record;
 import hospital.practice.model.Role;
+import hospital.practice.model.Subactivity;
+import hospital.practice.repository.ActivityRepository;
+import hospital.practice.repository.AssignmentRepository;
 import hospital.practice.repository.PersonRepository;
+import hospital.practice.repository.RecordRepository;
+import hospital.practice.repository.SubactivityRepository;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.boot.CommandLineRunner;

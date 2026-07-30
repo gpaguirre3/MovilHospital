@@ -6,13 +6,13 @@ import org.mapstruct.Mapper;
 import org.mapstruct.Mapping;
 import java.util.List;
 
-@Mapper(componentModel = "spring", uses = {AssignmentMapper.class})
+@Mapper(componentModel = "spring", uses = {RecordMapper.class})
 public interface ActivityMapper {
 
-    @Mapping(source = "assignment.assignmentsId", target = "assignmentsId")
+    @Mapping(source = "record.recordId", target = "recordId")
     ActivityDTO toDTO(Activity activity);
 
-    @Mapping(source = "assignmentsId", target = "assignment.assignmentsId")
+    @Mapping(source = "recordId", target = "record.recordId")
     Activity toEntity(ActivityDTO activityDTO);
 
     List<ActivityDTO> toDTOList(List<Activity> activities);

@@ -21,6 +21,11 @@ public class ProcessActivityController {
         return ResponseEntity.ok(processActivityService.findAll());
     }
 
+    @GetMapping("/events")
+    public ResponseEntity<hospital.practice.model.ProcessActivityEvent[]> getProcessActivityEvents() {
+        return ResponseEntity.ok(hospital.practice.model.ProcessActivityEvent.values());
+    }
+
     @GetMapping("/{id}")
     public ResponseEntity<ProcessActivityDTO> getProcessActivityById(@PathVariable Integer id) {
         return processActivityService.findById(id)
@@ -38,6 +43,15 @@ public class ProcessActivityController {
         return processActivityService.findById(id)
                 .map(existing -> {
                     processActivityDTO.setProcessActivityId(id);
+                    if (processActivityDTO.getProcessActivityDateStart() == null) {
+                        processActivityDTO.setProcessActivityDateStart(existing.getProcessActivityDateStart());
+                    }
+                    if (processActivityDTO.getPersonId() == null) {
+                        processActivityDTO.setPersonId(existing.getPersonId());
+                    }
+                    if (processActivityDTO.getHospitalId() == null) {
+                        processActivityDTO.setHospitalId(existing.getHospitalId());
+                    }
                     return ResponseEntity.ok(processActivityService.save(processActivityDTO));
                 })
                 .orElse(ResponseEntity.notFound().build());

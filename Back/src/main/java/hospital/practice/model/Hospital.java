@@ -17,11 +17,11 @@ public class Hospital {
     private Integer hospitalId;
 
     @ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "ASSIGNMENTSID", nullable = false)
+    @JoinColumn(name = "ASSIGNMENTSID")
     private Assignment assignment;
 
     @ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "PERSONID", nullable = false)
+    @JoinColumn(name = "PERSONID")
     private Person person;
 
     @Column(name = "HOSPITALNAME", length = 128)

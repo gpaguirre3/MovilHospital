@@ -7,6 +7,7 @@ import java.util.Optional;
 public interface ActivityService {
     List<ActivityDTO> findAll();
     Optional<ActivityDTO> findById(Integer id);
+    List<ActivityDTO> findByRecordId(Integer recordId);
     ActivityDTO save(ActivityDTO activityDTO);
     void deleteById(Integer id);
 }

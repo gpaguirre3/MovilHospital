@@ -17,7 +17,10 @@ public class ActivityController {
     private final ActivityService activityService;
 
     @GetMapping
-    public ResponseEntity<List<ActivityDTO>> getAllActivities() {
+    public ResponseEntity<List<ActivityDTO>> getAllActivities(@RequestParam(required = false) Integer recordId) {
+        if (recordId != null) {
+            return ResponseEntity.ok(activityService.findByRecordId(recordId));
+        }
         return ResponseEntity.ok(activityService.findAll());
     }
 
